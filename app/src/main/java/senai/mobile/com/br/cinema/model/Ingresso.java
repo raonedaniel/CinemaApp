@@ -1,4 +1,4 @@
-package senai.mobile.com.br.cinema.activities.model;
+package senai.mobile.com.br.cinema.model;
 
 public class Ingresso {
 
