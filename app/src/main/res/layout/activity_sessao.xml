@@ -1,9 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:layout_marginTop="16dp"
+    android:layout_marginBottom="16dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    android:layout_gravity="center"
     tools:context=".activities.SessaoActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <Space
+        android:layout_width="30dp"
+        android:layout_height="30dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SEÇÕES DISPONÍVEIS"
+        tools:layout_editor_absoluteX="120dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="434dp"
+        android:orientation="horizontal">
+
+        <Space
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Filme"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="55dp" />
+
+        <Spinner
+            android:id="@+id/Lançamentos"
+            android:layout_width="66dp"
+            android:layout_height="32dp"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="84dp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gênero"
+            tools:layout_editor_absoluteX="169dp"
+            tools:layout_editor_absoluteY="55dp" />
+
+        <Spinner
+            android:id="@+id/Lançamento"
+            android:layout_width="66dp"
+            android:layout_height="32dp"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="84dp" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Horário"
+            tools:layout_editor_absoluteX="292dp"
+            tools:layout_editor_absoluteY="54dp" />
+
+
+        <Spinner
+            android:id="@+id/Aventura"
+            android:layout_width="66dp"
+            android:layout_height="32dp"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="84dp" />
+
+        <FrameLayout
+            android:layout_width="84dp"
+            android:layout_height="48dp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="145dp">
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Comprar" />
+        </FrameLayout>
+
+
+        <FrameLayout
+            android:layout_width="85dp"
+            android:layout_height="51dp"
+            tools:layout_editor_absoluteX="149dp"
+            tools:layout_editor_absoluteY="145dp">
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Comprar" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="89dp"
+            android:layout_height="49dp"
+            tools:layout_editor_absoluteX="279dp"
+            tools:layout_editor_absoluteY="144dp">
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Comprar" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="84dp"
+            android:layout_height="60dp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="241dp">
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Comprar" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="86dp"
+            android:layout_height="58dp"
+            tools:layout_editor_absoluteX="149dp"
+            tools:layout_editor_absoluteY="241dp">
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Comprar" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="89dp"
+            android:layout_height="59dp"
+            tools:layout_editor_absoluteX="279dp"
+            tools:layout_editor_absoluteY="240dp">
+
+            <Button
+                android:id="@+id/button6"
+                android:layout_width="match_parent"
+                android:layout_height="31dp"
+                android:text="Comprar" />
+        </FrameLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

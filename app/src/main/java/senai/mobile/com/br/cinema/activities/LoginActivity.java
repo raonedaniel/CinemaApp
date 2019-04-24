@@ -73,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    abrirTelaAdministrador();
+                    abrirTelaHome();
                     Toast.makeText(LoginActivity.this, "Login efetuado com sucesso", Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(LoginActivity.this, "Usuário ou Senha inválidos! Tente novamente", Toast.LENGTH_LONG).show();
@@ -82,7 +82,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void abrirTelaAdministrador() {
+    private void abrirTelaHome() {
         Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
         startActivity(intent);
     }
