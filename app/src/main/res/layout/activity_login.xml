@@ -38,4 +38,12 @@
         android:layout_height="wrap_content"
         android:text="LOGIN"/>
 
+    <TextView
+        android:id="@+id/tvLinkCadastroDeUsuario"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:text="Novo Cadastro"
+        android:textSize="20sp"
+        android:layout_height="wrap_content" />
+
 </LinearLayout>

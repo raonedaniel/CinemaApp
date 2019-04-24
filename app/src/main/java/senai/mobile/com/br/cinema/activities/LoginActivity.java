@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -24,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText edtEmailLogin;
     private EditText edtSenhaLogin;
     private Button btnLogin;
+    private TextView tvLinkCadastroDeUsuario;
     private Usuario usuario;
 
     @Override
@@ -34,6 +36,14 @@ public class LoginActivity extends AppCompatActivity {
         edtEmailLogin = (EditText) findViewById(R.id.edtEmail);
         edtSenhaLogin = (EditText) findViewById(R.id.edtESenha);
         btnLogin = (Button) findViewById(R.id.btnLogin);
+        tvLinkCadastroDeUsuario = (TextView) findViewById(R.id.tvLinkCadastroDeUsuario);
+
+        tvLinkCadastroDeUsuario.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Intent intent = new Intent(LoginActivity.this, CadastroUsuarioActivity.class);
+                startActivity(intent);
+            }
+        });
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
