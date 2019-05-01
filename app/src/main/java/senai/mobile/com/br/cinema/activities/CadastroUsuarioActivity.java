@@ -1,5 +1,6 @@
 package senai.mobile.com.br.cinema.activities;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -29,8 +30,6 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
     private EditText senha1;
     private EditText senha2;
     private EditText nome;
-    private RadioButton rbAdmin;
-    private RadioButton rbAtend;
     private Button btnCadastrar;
     private Button btnCancelar;
     private FirebaseAuth autenticacao;
@@ -70,12 +69,20 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
             }
         });
 
+        btnCancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CadastroUsuarioActivity.this, LoginActivity.class);
+                startActivity(intent);;
+            }
+        });
+
     }
 
     private void cadastrarUsuario() {
 
         autenticacao = ConfiguracaoFirebase.getFirebaseAuth();
-        autenticacao.createUserWithEmailAndPassword(usuario.getSenha(), usuario.getEmail()).addOnCompleteListener(CadastroUsuarioActivity.this, new OnCompleteListener<AuthResult>() {
+        autenticacao.createUserWithEmailAndPassword(usuario.getEmail(), usuario.getSenha()).addOnCompleteListener(CadastroUsuarioActivity.this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
 
