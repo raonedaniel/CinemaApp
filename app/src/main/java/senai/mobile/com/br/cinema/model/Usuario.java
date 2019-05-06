@@ -6,9 +6,9 @@ public class Usuario {
 
     private Integer id;
 
-    private String login;
-
     private String senha;
+
+    private String nome;
 
     private String email;
 
@@ -20,14 +20,6 @@ public class Usuario {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
     }
 
     public String getSenha() {
@@ -52,5 +44,13 @@ public class Usuario {
 
     public void setIngressos(List<Ingresso> ingressos) {
         this.ingressos = ingressos;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 }
