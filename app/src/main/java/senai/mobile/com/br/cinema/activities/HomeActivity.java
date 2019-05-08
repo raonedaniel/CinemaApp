@@ -8,10 +8,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
 import senai.mobile.com.br.cinema.R;
+import senai.mobile.com.br.cinema.SinopseActivity;
 import senai.mobile.com.br.cinema.model.Sessao;
 
 public class HomeActivity extends AppCompatActivity {
@@ -23,6 +25,15 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        imageView = (ImageView) findViewById(R.id.imageView4);
+
+        imageView.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Intent intent = new Intent(HomeActivity.this, SinopseActivity.class);
+                startActivity(intent);
+            }
+        });
 
         autenticacao = FirebaseAuth.getInstance();
     }
