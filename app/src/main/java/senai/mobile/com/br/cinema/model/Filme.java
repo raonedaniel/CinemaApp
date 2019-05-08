@@ -18,7 +18,7 @@ public class Filme {
 
     private String capaDoFilme;
 
-    private List<Sessao> sessoes;
+    private List<Sessao> secoes;
 
     public Integer getId() {
         return id;
@@ -76,11 +76,16 @@ public class Filme {
         this.capaDoFilme = capaDoFilme;
     }
 
-    public List<Sessao> getSessoes() {
-        return sessoes;
+    public List<Sessao> getSecoes() {
+        return secoes;
     }
 
-    public void setSessoes(List<Sessao> sessoes) {
-        this.sessoes = sessoes;
+    public void setSecoes(List<Sessao> secoes) {
+        this.secoes = secoes;
+    }
+
+    @Override
+    public String toString() {
+        return "Filme{" + "id=" + id + ", nome='" + nome + '\'' + ", genero='" + genero + '\'' + ", sinopse='" + sinopse + '\'' + ", duracao='" + duracao + '\'' + ", status=" + status + ", capaDoFilme='" + capaDoFilme + '\'' + ", sessoes=" + secoes + '}';
     }
 }
