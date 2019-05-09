@@ -73,4 +73,17 @@ public class Sessao {
     public void setIngressos(List<Ingresso> ingressos) {
         this.ingressos = ingressos;
     }
+
+    @Override
+    public String toString() {
+        return "Sessao{" +
+                "id=" + id +
+                ", data='" + data + '\'' +
+                ", hora='" + hora + '\'' +
+                ", valorDoIngresso=" + valorDoIngresso +
+                ", idSala=" + idSala +
+                ", idFilme=" + idFilme +
+                ", ingressos=" + ingressos +
+                '}';
+    }
 }

@@ -31,4 +31,13 @@ public class Ingresso {
     public void setIdSessao(Sessao idSessao) {
         this.idSessao = idSessao;
     }
+
+    @Override
+    public String toString() {
+        return "Ingresso{" +
+                "id=" + id +
+                ", idUsuario=" + idUsuario +
+                ", idSessao=" + idSessao +
+                '}';
+    }
 }

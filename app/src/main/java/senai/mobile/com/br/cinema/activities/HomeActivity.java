@@ -9,7 +9,7 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 
 import com.google.firebase.auth.FirebaseAuth;
-
+;
 import java.util.List;
 
 import retrofit2.Call;
@@ -89,11 +89,33 @@ public class HomeActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Filme>> call, Throwable t) {
-                Log.e("AlbumService   ", "Erro ao buscar o album:" + t.getMessage());
+                Log.e("FilmeService   ", "Erro ao buscar o Filme:" + t.getMessage());
             }
 
         });
 
     }
+
+
+
+//    ArrayList<HashMap<String,String>> arrayList = new ArrayList<>();
+//
+//    public void add(View view) {
+//        String[] from={"id", "nome"};
+//        int[] to={R.id.txt_id, R.id.nomeFilme};
+//        simpleListView=(ListView)findViewById(R.id.simpleListView);
+//
+//        HashMap m = new HashMap();
+//
+//        txtId = findViewById(R.id.txt_id);
+//        txtCliente = findViewById(R.id.txt_cliente);
+//
+//        m.put("id", txtId.getText().toString());
+//        m.put("cliente", txtCliente.getText().toString());
+//        arrayList.add(m);
+//        SimpleAdapter simpleAdapter = new SimpleAdapter(this, arrayList, R.layout.activity_item_pedido, from, to);
+//        simpleListView.setAdapter(simpleAdapter);
+//    }
+
 
 }

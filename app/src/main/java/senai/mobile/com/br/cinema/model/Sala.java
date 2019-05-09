@@ -43,4 +43,14 @@ public class Sala {
     public void setSessoes(List<Sessao> sessoes) {
         this.sessoes = sessoes;
     }
+
+    @Override
+    public String toString() {
+        return "Sala{" +
+                "id=" + id +
+                ", numero='" + numero + '\'' +
+                ", quantidadeDeLugares=" + quantidadeDeLugares +
+                ", sessoes=" + sessoes +
+                '}';
+    }
 }
