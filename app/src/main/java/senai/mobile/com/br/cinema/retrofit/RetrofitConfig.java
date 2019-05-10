@@ -1,9 +1,9 @@
 package senai.mobile.com.br.cinema.retrofit;
 
 import retrofit2.Retrofit;
-import okhttp3.OkHttpClient;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 import senai.mobile.com.br.cinema.service.FilmeService;
+import senai.mobile.com.br.cinema.service.SessaoService;
 
 public class RetrofitConfig {
 
@@ -19,6 +19,10 @@ public class RetrofitConfig {
 
     public FilmeService getFilmeService() {
         return this.retrofit.create(FilmeService.class);
+    }
+
+    public SessaoService getSessaoService() {
+        return this.retrofit.create(SessaoService.class);
     }
 
 }

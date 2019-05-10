@@ -7,6 +7,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 ;
@@ -22,6 +25,8 @@ import senai.mobile.com.br.cinema.retrofit.RetrofitConfig;
 
 public class HomeActivity extends AppCompatActivity {
 
+
+    private TextView textView;
     private ImageView imageView;
     private FirebaseAuth autenticacao;
 
@@ -95,27 +100,6 @@ public class HomeActivity extends AppCompatActivity {
         });
 
     }
-
-
-
-//    ArrayList<HashMap<String,String>> arrayList = new ArrayList<>();
-//
-//    public void add(View view) {
-//        String[] from={"id", "nome"};
-//        int[] to={R.id.txt_id, R.id.nomeFilme};
-//        simpleListView=(ListView)findViewById(R.id.simpleListView);
-//
-//        HashMap m = new HashMap();
-//
-//        txtId = findViewById(R.id.txt_id);
-//        txtCliente = findViewById(R.id.txt_cliente);
-//
-//        m.put("id", txtId.getText().toString());
-//        m.put("cliente", txtCliente.getText().toString());
-//        arrayList.add(m);
-//        SimpleAdapter simpleAdapter = new SimpleAdapter(this, arrayList, R.layout.activity_item_pedido, from, to);
-//        simpleListView.setAdapter(simpleAdapter);
-//    }
 
 
 }

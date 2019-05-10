@@ -1,20 +1,23 @@
 package senai.mobile.com.br.cinema.activities;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
+import android.util.Log;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import senai.mobile.com.br.cinema.R;
+import senai.mobile.com.br.cinema.model.Sessao;
+import senai.mobile.com.br.cinema.retrofit.RetrofitConfig;
 
 public class SessaoActivity extends AppCompatActivity {
-
 
     Spinner sistemas;
     LinearLayout mainLayout;
@@ -54,5 +57,37 @@ public class SessaoActivity extends AppCompatActivity {
             // portrait
             mainLayout.setOrientation(LinearLayout.VERTICAL);
         }
+
+        listarSessoes();
+
+
     }
+
+    public void listarSessoes() {
+
+        Call<List<Sessao>> call = new RetrofitConfig().getSessaoService().list();
+        call.enqueue(new Callback<List<Sessao>>() {
+
+            @Override
+            public void onResponse(Call<List<Sessao>> call, Response<List<Sessao>> response) {
+                List<Sessao> sessoes = response.body();
+
+                for (Sessao sessao : sessoes) {
+                    System.out.println("Obj Sessao [" + sessao.toString() + "]");
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<List<Sessao>> call, Throwable t) {
+                Log.e("FilmeService   ", "Erro ao buscar o Filme:" + t.getMessage());
+            }
+
+        });
+
+    }
+
+
+
+
 }
