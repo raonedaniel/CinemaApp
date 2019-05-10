@@ -6,10 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
-import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 ;
@@ -19,16 +16,17 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import senai.mobile.com.br.cinema.R;
+import senai.mobile.com.br.cinema.adapters.AdapterListaFilmes;
 import senai.mobile.com.br.cinema.model.Filme;
 import senai.mobile.com.br.cinema.retrofit.RetrofitConfig;
 
 
 public class HomeActivity extends AppCompatActivity {
 
-
-    private TextView textView;
-    private ImageView imageView;
     private FirebaseAuth autenticacao;
+    private ListView listViewFilmes;
+    private List<Filme> filmes;
+    private AdapterListaFilmes adapterListaFilmes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +36,10 @@ public class HomeActivity extends AppCompatActivity {
         autenticacao = FirebaseAuth.getInstance();
 
         listarFilmes();
+
+        this.adapterListaFilmes = new AdapterListaFilmes(HomeActivity.this, this.filmes);
+
+        this.listViewFilmes.setAdapter(this.adapterListaFilmes);
 
     }
 
@@ -84,10 +86,13 @@ public class HomeActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Call<List<Filme>> call, Response<List<Filme>> response) {
-                List<Filme> filmes = response.body();
+                List<Filme> listFilmes = response.body();
 
-                for (Filme filme : filmes) {
-                    System.out.println("Obj Filme [" + filme.toString() + "]");
+                for (Filme filme : listFilmes) {
+                    if (filme.isStatus()) {
+                        filmes.add(filme);
+                    }
+
                 }
 
             }

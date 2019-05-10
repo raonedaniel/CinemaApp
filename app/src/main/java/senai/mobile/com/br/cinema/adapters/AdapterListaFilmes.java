@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -38,12 +39,9 @@ public class AdapterListaFilmes extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        View view = View.inflate(this.context, R.layout.activity_home, null);
+        View view = View.inflate(this.context, R.layout.activity_listar_filmes, null);
 
-        //TextView tvNomeFilme = (TextView) view.findViewById(R.id.txtNomeProduto);
-
-        //txtNomeProduto.setText(this.listProdutos.get(position).getNome());
-
+        TextView tvNomeFilme = (TextView) view.findViewById(R.id.tvNomeFilme);
 
         return view;
 
