@@ -6,10 +6,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ListView;
 
 import com.google.firebase.auth.FirebaseAuth;
-;
+
 import java.util.List;
 
 import retrofit2.Call;
@@ -35,9 +36,11 @@ public class HomeActivity extends AppCompatActivity {
 
         autenticacao = FirebaseAuth.getInstance();
 
-        listarFilmes();
+        listViewFilmes = (ListView) findViewById(R.id.listViewFilmes);
 
-        this.adapterListaFilmes = new AdapterListaFilmes(HomeActivity.this, this.filmes);
+        listarFilmes(listViewFilmes);
+
+        this.adapterListaFilmes = new AdapterListaFilmes(this, this.filmes);
 
         this.listViewFilmes.setAdapter(this.adapterListaFilmes);
 
@@ -67,7 +70,7 @@ public class HomeActivity extends AppCompatActivity {
     private void abrirTelaDeSessao() {
         Intent intent = new Intent(HomeActivity.this, SessaoActivity.class);
         startActivity(intent);
-    }
+}
 
     private void deslogarUsuario() {
 
@@ -79,7 +82,8 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
-    public void listarFilmes() {
+    public void listarFilmes(View view) {
+
 
         Call<List<Filme>> call = new RetrofitConfig().getFilmeService().list();
         call.enqueue(new Callback<List<Filme>>() {
@@ -89,10 +93,8 @@ public class HomeActivity extends AppCompatActivity {
                 List<Filme> listFilmes = response.body();
 
                 for (Filme filme : listFilmes) {
-                    if (filme.isStatus()) {
-                        filmes.add(filme);
-                    }
-
+                    filmes.add(filme);
+                    //exibir(filme);
                 }
 
             }
@@ -103,7 +105,6 @@ public class HomeActivity extends AppCompatActivity {
             }
 
         });
-
     }
 
 

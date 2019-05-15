@@ -10,7 +10,7 @@ import senai.mobile.com.br.cinema.model.Filme;
 public interface FilmeService {
 
     @GET("/filmes/{id}")
-    Call<Filme> getAlbum(@Path("id") String id);
+    Call<Filme> getFilme(@Path("id") String id);
 
     @GET("/filmes")
     Call<List<Filme>> list();

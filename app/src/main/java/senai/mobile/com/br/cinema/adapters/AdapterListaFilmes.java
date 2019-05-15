@@ -1,5 +1,6 @@
 package senai.mobile.com.br.cinema.adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,7 +42,11 @@ public class AdapterListaFilmes extends BaseAdapter {
 
         View view = View.inflate(this.context, R.layout.activity_listar_filmes, null);
 
+        Filme filme = (Filme) getItem(position);
+
         TextView tvNomeFilme = (TextView) view.findViewById(R.id.tvNomeFilme);
+
+        tvNomeFilme.setText(filme.getNome());
 
         return view;
 
