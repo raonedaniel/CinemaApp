@@ -110,7 +110,7 @@ public class HomeActivity extends AppCompatActivity {
         m.put("nome", filme.getNome());
         listFilmes.add(m);
 
-        String[] from={"id", "nome"};
+        String[] from={"nome"};
         int[] to={R.id.tvNomeFilme};
 
         SimpleAdapter simpleAdapter = new SimpleAdapter(this, listFilmes, R.layout.activity_listar_filmes, from, to);

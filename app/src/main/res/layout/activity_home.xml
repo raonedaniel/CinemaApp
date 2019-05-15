@@ -12,6 +12,11 @@
     android:orientation="horizontal"
     tools:context=".activities.HomeActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:text="Filmes em Cartaz"/>
+
     <ListView
         android:id="@+id/listViewFilmes"
         android:layout_width="match_parent"
