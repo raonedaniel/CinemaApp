@@ -15,10 +15,9 @@
     <ListView
         android:id="@+id/listViewFilmes"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
-
-    </ListView>
+        android:layout_height="wrap_content"
+        android:divider="#000"
+        android:dividerHeight="2dp"
+        android:listSelector="#600" />
 
 </LinearLayout>

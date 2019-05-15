@@ -8,16 +8,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import senai.mobile.com.br.cinema.R;
-import senai.mobile.com.br.cinema.adapters.AdapterListaFilmes;
 import senai.mobile.com.br.cinema.model.Filme;
 import senai.mobile.com.br.cinema.retrofit.RetrofitConfig;
 
@@ -26,8 +28,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private FirebaseAuth autenticacao;
     private ListView listViewFilmes;
-    private List<Filme> filmes;
-    private AdapterListaFilmes adapterListaFilmes;
+    private List<HashMap<String, String>> listFilmes = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +40,6 @@ public class HomeActivity extends AppCompatActivity {
         listViewFilmes = (ListView) findViewById(R.id.listViewFilmes);
 
         listarFilmes(listViewFilmes);
-
-        this.adapterListaFilmes = new AdapterListaFilmes(this, this.filmes);
-
-        this.listViewFilmes.setAdapter(this.adapterListaFilmes);
 
     }
 
@@ -93,8 +90,7 @@ public class HomeActivity extends AppCompatActivity {
                 List<Filme> listFilmes = response.body();
 
                 for (Filme filme : listFilmes) {
-                    filmes.add(filme);
-                    //exibir(filme);
+                    exibir(filme);
                 }
 
             }
@@ -105,6 +101,20 @@ public class HomeActivity extends AppCompatActivity {
             }
 
         });
+    }
+
+    public void exibir(Filme filme) {
+
+        HashMap<String, String> m = new HashMap();
+
+        m.put("nome", filme.getNome());
+        listFilmes.add(m);
+
+        String[] from={"id", "nome"};
+        int[] to={R.id.tvNomeFilme};
+
+        SimpleAdapter simpleAdapter = new SimpleAdapter(this, listFilmes, R.layout.activity_listar_filmes, from, to);
+        listViewFilmes.setAdapter(simpleAdapter);
     }
 
 
