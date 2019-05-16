@@ -11,7 +11,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.SinopseActivity"></activity>
         <activity android:name=".activities.CadastroUsuarioActivity" />
         <activity android:name=".activities.LoginActivity">
             <intent-filter>
@@ -22,15 +21,8 @@
         </activity>
         <activity android:name=".activities.HomeActivity" />
         <activity android:name=".activities.SessaoActivity" />
-<<<<<<< HEAD
         <activity android:name=".activities.PagamentoActivity" />
-=======
-<<<<<<< HEAD
-        <activity android:name=".activities.PagamentoActivity"></activity>
-=======
-        <activity android:name=".SinopseActivity"></activity>
->>>>>>> telaSinopse
->>>>>>> b5c00df9520aef59ae1ab345597887463f77b777
+        <activity android:name=".activities.SinopseActivity"></activity>
     </application>
 
 </manifest>
