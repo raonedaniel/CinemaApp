@@ -10,7 +10,13 @@
     android:layout_marginRight="16dp"
     android:layout_marginBottom="16dp"
     android:orientation="vertical"
+<<<<<<< HEAD
     tools:context=".activities.SinopseActivity">
+=======
+    tools:context=".SinopseActivity">
+
+
+>>>>>>> b5c00df9520aef59ae1ab345597887463f77b777
 
     <TextView
         android:id="@+id/textView"
@@ -37,12 +43,16 @@
         android:layout_marginLeft="4dp"
         android:layout_width="344dp"
         android:layout_height="234dp"
+<<<<<<< HEAD
         android:text="Loki, o irmão de Thor, ganha acesso ao poder ilimitado do
         cubo cósmico ao roubá-lo de dentro das instalações da S.H.I.E.L.D. Nick Fury, o
         diretor desta agência internacional que mantém a paz, logo reúne os únicos super-heróis
         que serão capazes de defender a Terra de ameaças sem precedentes.Homem de Ferro,Capitão
         América,Hulk,Thor, Viúva Negra e GaviãoArqueiro formam o time dos sonhos de Fury,mas eles
         precisam aprender a colocar os egos de lado e agir como um grupo em prol da humanidade." />
+=======
+        android:text="Loki, o irmão de Thor, ganha acesso ao poder ilimitado do cubo cósmico ao roubá-lo de dentro das instalações da S.H.I.E.L.D. Nick Fury, o diretor desta agência internacional que mantém a paz, logo reúne os únicos super-heróis que serão capazes de defender a Terra de ameaças sem precedentes.Homem de Ferro,Capitão América,Hulk,Thor, Viúva Negra e GaviãoArqueiro formam o time dos sonhos de Fury,mas eles precisam aprender a colocar os egos de lado e agir como um grupo em prol da humanidade." />
+>>>>>>> b5c00df9520aef59ae1ab345597887463f77b777
 
 
 </LinearLayout>
