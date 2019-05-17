@@ -73,7 +73,7 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(CadastroUsuarioActivity.this, LoginActivity.class);
-                startActivity(intent);;
+                startActivity(intent);
             }
         });
 

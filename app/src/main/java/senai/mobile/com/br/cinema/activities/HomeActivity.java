@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
@@ -21,7 +22,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import senai.mobile.com.br.cinema.R;
 import senai.mobile.com.br.cinema.model.Filme;
-import senai.mobile.com.br.cinema.model.Sessao;
 import senai.mobile.com.br.cinema.retrofit.RetrofitConfig;
 
 public class HomeActivity extends AppCompatActivity {
@@ -29,6 +29,7 @@ public class HomeActivity extends AppCompatActivity {
     private FirebaseAuth autenticacao;
     private ListView listViewFilmes;
     private List<HashMap<String, String>> listFilmes = new ArrayList<>();
+    private Button btnTelaSinopse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +39,11 @@ public class HomeActivity extends AppCompatActivity {
         autenticacao = FirebaseAuth.getInstance();
 
         listViewFilmes = (ListView) findViewById(R.id.listViewFilmes);
+        btnTelaSinopse = (Button) findViewById(R.id.btnTelaSinopse);
 
-        listarFilmes(listViewFilmes);
+        listarFilmes();
+
+        irParaTelaDeSinopse();
 
     }
 
@@ -79,8 +83,7 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
-    public void listarFilmes(View view) {
-
+    public void listarFilmes() {
 
         Call<List<Filme>> call = new RetrofitConfig().getFilmeService().list();
         call.enqueue(new Callback<List<Filme>>() {
@@ -115,6 +118,21 @@ public class HomeActivity extends AppCompatActivity {
 
         SimpleAdapter simpleAdapter = new SimpleAdapter(this, listFilmes, R.layout.activity_listar_filmes, from, to);
         listViewFilmes.setAdapter(simpleAdapter);
+
+    }
+
+    public void irParaTelaDeSinopse() {
+
+        this.btnTelaSinopse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(HomeActivity.this, SinopseActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
     }
 
 

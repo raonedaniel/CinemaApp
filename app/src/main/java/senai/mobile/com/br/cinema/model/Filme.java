@@ -16,8 +16,6 @@ public class Filme {
 
     private boolean status;
 
-    private String capaDoFilme;
-
     private List<Sessao> secoes;
 
     public Integer getId() {
@@ -68,14 +66,6 @@ public class Filme {
         this.status = status;
     }
 
-    public String getCapaDoFilme() {
-        return capaDoFilme;
-    }
-
-    public void setCapaDoFilme(String capaDoFilme) {
-        this.capaDoFilme = capaDoFilme;
-    }
-
     public List<Sessao> getSecoes() {
         return secoes;
     }
@@ -86,6 +76,14 @@ public class Filme {
 
     @Override
     public String toString() {
-        return "Filme{" + "id=" + id + ", nome='" + nome + '\'' + ", genero='" + genero + '\'' + ", sinopse='" + sinopse + '\'' + ", duracao='" + duracao + '\'' + ", status=" + status + ", capaDoFilme='" + capaDoFilme + '\'' + ", sessoes=" + secoes + '}';
+        return "Filme{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", genero='" + genero + '\'' +
+                ", sinopse='" + sinopse + '\'' +
+                ", duracao='" + duracao + '\'' +
+                ", status=" + status +
+                ", secoes=" + secoes +
+                '}';
     }
 }
