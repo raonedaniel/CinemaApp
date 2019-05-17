@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -43,7 +44,7 @@ public class HomeActivity extends AppCompatActivity {
 
         listarFilmes();
 
-        irParaTelaDeSinopse();
+        //irParaTelaDeSinopse();
 
     }
 
@@ -119,6 +120,10 @@ public class HomeActivity extends AppCompatActivity {
         SimpleAdapter simpleAdapter = new SimpleAdapter(this, listFilmes, R.layout.activity_listar_filmes, from, to);
         listViewFilmes.setAdapter(simpleAdapter);
 
+        //TextView tvIdFilme = (TextView) findViewById(R.id.tvIdFilme);
+
+        //tvIdFilme.setTag(filme.getId());
+
     }
 
     public void irParaTelaDeSinopse() {
@@ -129,6 +134,12 @@ public class HomeActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(HomeActivity.this, SinopseActivity.class);
                 startActivity(intent);
+
+                //Filme filme1 = listViewFilmes.getAdapter().getView(0,listViewFilmes,null);
+
+                //Filme filme2 = (Filme) listViewFilmes.getAdapter().getItem(0);
+
+                //System.out.println("Obj filme2 = " + filme2.toString());
 
             }
         });

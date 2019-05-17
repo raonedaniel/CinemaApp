@@ -68,6 +68,7 @@ public class SinopseActivity extends AppCompatActivity {
 
         SimpleAdapter simpleAdapter = new SimpleAdapter(this, listFilmes, R.layout.activity_listar_filmes, from, to);
         listViewDetalhesDoFilme.setAdapter(simpleAdapter);
+
     }
 
 }
