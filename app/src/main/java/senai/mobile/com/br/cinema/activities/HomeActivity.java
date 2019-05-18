@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -94,7 +93,9 @@ public class HomeActivity extends AppCompatActivity {
                 List<Filme> listFilmes = response.body();
 
                 for (Filme filme : listFilmes) {
-                    exibir(filme);
+                    if (filme.isStatus()) {
+                        exibir(filme);
+                    }
                 }
 
             }
@@ -137,9 +138,9 @@ public class HomeActivity extends AppCompatActivity {
 
                 //Filme filme1 = listViewFilmes.getAdapter().getView(0,listViewFilmes,null);
 
-                //Filme filme2 = (Filme) listViewFilmes.getAdapter().getItem(0);
+                Filme filme2 = (Filme) listViewFilmes.getAdapter().getItem(0);
 
-                //System.out.println("Obj filme2 = " + filme2.toString());
+                System.out.println("Obj filme2 = " + filme2.toString());
 
             }
         });
