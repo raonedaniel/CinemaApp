@@ -10,7 +10,7 @@ public class Sala {
 
     private long quantidadeDeLugares;
 
-    private List<Sessao> sessoes;
+    private List<Secao> sessoes;
 
     public Integer getId() {
         return id;
@@ -36,11 +36,11 @@ public class Sala {
         this.quantidadeDeLugares = quantidadeDeLugares;
     }
 
-    public List<Sessao> getSessoes() {
+    public List<Secao> getSessoes() {
         return sessoes;
     }
 
-    public void setSessoes(List<Sessao> sessoes) {
+    public void setSessoes(List<Secao> sessoes) {
         this.sessoes = sessoes;
     }
 

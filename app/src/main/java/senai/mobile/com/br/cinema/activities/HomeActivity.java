@@ -43,7 +43,7 @@ public class HomeActivity extends AppCompatActivity {
 
         listarFilmes();
 
-        System.out.println("Position = " + findViewById(listViewFilmes.getSelectedItemPosition()));
+        //System.out.println("Position = " + findViewById(listViewFilmes.getSelectedItemPosition()));
 
         //irParaTelaDeSinopse();
 

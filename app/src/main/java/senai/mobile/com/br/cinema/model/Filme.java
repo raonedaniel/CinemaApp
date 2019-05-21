@@ -16,7 +16,7 @@ public class Filme {
 
     private boolean status;
 
-    private List<Sessao> secoes;
+    private List<Secao> secoes;
 
     public Integer getId() {
         return id;
@@ -66,11 +66,11 @@ public class Filme {
         this.status = status;
     }
 
-    public List<Sessao> getSecoes() {
+    public List<Secao> getSecoes() {
         return secoes;
     }
 
-    public void setSecoes(List<Sessao> secoes) {
+    public void setSecoes(List<Secao> secoes) {
         this.secoes = secoes;
     }
 

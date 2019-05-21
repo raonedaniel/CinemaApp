@@ -2,13 +2,11 @@ package senai.mobile.com.br.cinema.model;
 
 import java.util.List;
 
-public class Sessao {
+public class Secao {
 
     private Integer id;
 
     private String data;
-
-    private String hora;
 
     private float valorDoIngresso;
 
@@ -32,14 +30,6 @@ public class Sessao {
 
     public void setData(String data) {
         this.data = data;
-    }
-
-    public String getHora() {
-        return hora;
-    }
-
-    public void setHora(String hora) {
-        this.hora = hora;
     }
 
     public float getValorDoIngresso() {
@@ -76,10 +66,9 @@ public class Sessao {
 
     @Override
     public String toString() {
-        return "Sessao{" +
+        return "Secao{" +
                 "id=" + id +
                 ", data='" + data + '\'' +
-                ", hora='" + hora + '\'' +
                 ", valorDoIngresso=" + valorDoIngresso +
                 ", idSala=" + idSala +
                 ", idFilme=" + idFilme +

@@ -6,7 +6,7 @@ public class Ingresso {
 
     private Usuario idUsuario;
 
-    private Sessao idSessao;
+    private Secao idSessao;
 
     public Integer getId() {
         return id;
@@ -24,11 +24,11 @@ public class Ingresso {
         this.idUsuario = idUsuario;
     }
 
-    public Sessao getIdSessao() {
+    public Secao getIdSessao() {
         return idSessao;
     }
 
-    public void setIdSessao(Sessao idSessao) {
+    public void setIdSessao(Secao idSessao) {
         this.idSessao = idSessao;
     }
 
