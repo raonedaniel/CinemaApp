@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="SEÇÕES DISPONÍVEIS"
+        android:text="SESSÕES DISPONÍVEIS"
         tools:layout_editor_absoluteX="120dp"
         tools:layout_editor_absoluteY="16dp" />
 
@@ -92,95 +92,12 @@
         android:layout_width="40dp"
         android:layout_height="40dp" />
 
-
-    <LinearLayout
-        android:id="@+id/terceiro_layout"
+    <ListView
+        android:id="@+id/listViewSecoes"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:divider="#000"
+        android:dividerHeight="2dp"
+        android:listSelector="#600" />
 
-        <FrameLayout
-            android:layout_width="100dp"
-            android:layout_height="58dp">
-
-            <Button
-                android:id="@+id/button"
-                android:layout_width="97dp"
-                android:layout_height="38dp"
-                android:layout_gravity="center"
-                android:text="Comprar" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="100dp"
-            android:layout_height="58dp">
-
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="97dp"
-                android:layout_height="38dp"
-                android:layout_gravity="center"
-                android:text="Comprar"/>
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="100dp"
-            android:layout_height="58dp">
-
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="97dp"
-                android:layout_height="38dp"
-                android:layout_gravity="center"
-                android:text="Comprar"/>
-        </FrameLayout>
-    </LinearLayout>
-
-    <Space
-        android:layout_width="60dp"
-        android:layout_height="60dp" />
-
-
-    <LinearLayout
-        android:id="@+id/quarto_layout"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:orientation="horizontal">
-
-        <FrameLayout
-            android:layout_width="100dp"
-            android:layout_height="58dp">
-
-            <Button
-                android:id="@+id/button4"
-                android:layout_width="97dp"
-                android:layout_height="38dp"
-                android:layout_gravity="center"
-                android:text="Comprar" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="100dp"
-            android:layout_height="58dp">
-
-            <Button
-                android:id="@+id/button5"
-                android:layout_width="97dp"
-                android:layout_height="38dp"
-                android:layout_gravity="center"
-                android:text="Comprar" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="100dp"
-            android:layout_height="58dp">
-
-            <Button
-                android:id="@+id/button6"
-                android:layout_width="97dp"
-                android:layout_height="38dp"
-                android:layout_gravity="center"
-                android:text="Comprar" />
-        </FrameLayout>
-    </LinearLayout>
 </LinearLayout>

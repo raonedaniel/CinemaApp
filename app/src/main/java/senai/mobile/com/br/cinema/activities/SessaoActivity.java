@@ -22,8 +22,8 @@ public class SessaoActivity extends AppCompatActivity {
     Spinner sistemas;
     LinearLayout mainLayout;
     LinearLayout segundoLayout;
-    LinearLayout terceiroLayout;
-    LinearLayout quartoLayout;
+    //LinearLayout terceiroLayout;
+    //LinearLayout quartoLayout;
 
 
     @Override
@@ -46,8 +46,8 @@ public class SessaoActivity extends AppCompatActivity {
 
         mainLayout = findViewById(R.id.main_layout);
         segundoLayout = findViewById(R.id.segundo_layout);
-        terceiroLayout = findViewById(R.id.terceiro_layout);
-        quartoLayout = findViewById(R.id.quarto_layout);
+        //terceiroLayout = findViewById(R.id.terceiro_layout);
+        //quartoLayout = findViewById(R.id.quarto_layout);
 
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
             // landscape
@@ -58,7 +58,7 @@ public class SessaoActivity extends AppCompatActivity {
             mainLayout.setOrientation(LinearLayout.VERTICAL);
         }
 
-        listarSessoes();
+        //listarSessoes();
 
 
     }
@@ -80,7 +80,7 @@ public class SessaoActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Sessao>> call, Throwable t) {
-                Log.e("FilmeService   ", "Erro ao buscar o Filme:" + t.getMessage());
+                Log.e("FilmeService   ", "Erro ao buscar a Sessao:" + t.getMessage());
             }
 
         });
