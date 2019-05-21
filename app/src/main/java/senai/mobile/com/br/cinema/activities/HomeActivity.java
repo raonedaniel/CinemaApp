@@ -43,6 +43,8 @@ public class HomeActivity extends AppCompatActivity {
 
         listarFilmes();
 
+        System.out.println("Position = " + findViewById(listViewFilmes.getSelectedItemPosition()));
+
         //irParaTelaDeSinopse();
 
     }
@@ -138,9 +140,9 @@ public class HomeActivity extends AppCompatActivity {
 
                 //Filme filme1 = listViewFilmes.getAdapter().getView(0,listViewFilmes,null);
 
-                Filme filme2 = (Filme) listViewFilmes.getAdapter().getItem(0);
+                //Filme filme2 = (Filme) listViewFilmes.getAdapter().getItem(0);
 
-                System.out.println("Obj filme2 = " + filme2.toString());
+                //System.out.println("Obj filme2 = " + filme2.toString());
 
             }
         });
