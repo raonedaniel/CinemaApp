@@ -9,10 +9,10 @@ import senai.mobile.com.br.cinema.model.Secao;
 
 public interface SessaoService {
 
-    @GET("/sessoes/{id}")
+    @GET("/secoes/{id}")
     Call<Secao> getAlbum(@Path("id") String id);
 
-    @GET("/sessoes")
+    @GET("/secoes")
     Call<List<Secao>> list();
 
 }

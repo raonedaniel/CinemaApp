@@ -31,7 +31,6 @@ public class SessaoActivity extends AppCompatActivity {
     private List<HashMap<String, String>> listSecoes = new ArrayList<>();
     private Button btnComprarIngresso;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,7 +62,7 @@ public class SessaoActivity extends AppCompatActivity {
             mainLayout.setOrientation(LinearLayout.VERTICAL);
         }
 
-        //listarSessoes();
+        listarSessoes();
 
 
     }
@@ -85,7 +84,7 @@ public class SessaoActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Secao>> call, Throwable t) {
-                Log.e("FilmeService   ", "Erro ao buscar a Secao:" + t.getMessage());
+                Log.e("SecaoService   ", "Erro ao buscar a Secao:" + t.getMessage());
             }
 
         });
@@ -96,19 +95,17 @@ public class SessaoActivity extends AppCompatActivity {
 
         HashMap<String, String> m = new HashMap();
 
+        m.put("filme", secao.getNomeDoFilme());
         m.put("data", secao.getData());
-        m.put("sala", secao.getIdSala().getNumero());
+        m.put("sala", secao.getNumeroDaSala());
         listSecoes.add(m);
 
-        String[] from={"data", "sala"};
+        String[] from={"filme" ,"data", "sala"};
         int[] to={R.id.tvDataSecao, R.id.tvSalaSecao};
 
         SimpleAdapter simpleAdapter = new SimpleAdapter(this, listSecoes, R.layout.activity_list_view_secoes, from, to);
         listViewSecoes.setAdapter(simpleAdapter);
 
     }
-
-
-
 
 }
