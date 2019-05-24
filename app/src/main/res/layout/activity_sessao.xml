@@ -31,7 +31,6 @@
         android:layout_height="30dp" />
 
 
-
     <LinearLayout
         android:id="@+id/segundo_layout"
         android:layout_width="match_parent"
@@ -72,20 +71,21 @@
             tools:layout_editor_absoluteX="8dp"
             tools:layout_editor_absoluteY="84dp" />
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Horário"
-            tools:layout_editor_absoluteX="292dp"
-            tools:layout_editor_absoluteY="54dp" />
+        <!--<TextView-->
+            <!--android:id="@+id/textView4"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Horário"-->
+            <!--tools:layout_editor_absoluteX="292dp"-->
+            <!--tools:layout_editor_absoluteY="54dp" />-->
 
-        <Spinner
-            android:id="@+id/Aventura"
-            android:layout_width="66dp"
-            android:layout_height="32dp"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="84dp"/>
+        <!--<Spinner-->
+            <!--android:id="@+id/Aventura"-->
+            <!--android:layout_width="66dp"-->
+            <!--android:layout_height="32dp"-->
+            <!--tools:layout_editor_absoluteX="8dp"-->
+            <!--tools:layout_editor_absoluteY="84dp"/>-->
+
     </LinearLayout>
 
     <Space

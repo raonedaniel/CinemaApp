@@ -47,9 +47,9 @@ public class SessaoActivity extends AppCompatActivity {
         ArrayAdapter adapter1 = ArrayAdapter.createFromResource(this, R.array.Tela_de_seções, android.R.layout.simple_spinner_item);
         sistemas.setAdapter(adapter);
 
-        sistemas = (Spinner) findViewById(R.id.Aventura);
-        ArrayAdapter adapter2 = ArrayAdapter.createFromResource(this, R.array.Tela_de_seções, android.R.layout.simple_spinner_item);
-        sistemas.setAdapter(adapter);
+//        sistemas = (Spinner) findViewById(R.id.Aventura);
+//        ArrayAdapter adapter2 = ArrayAdapter.createFromResource(this, R.array.Tela_de_seções, android.R.layout.simple_spinner_item);
+//        sistemas.setAdapter(adapter);
 
 
         mainLayout = findViewById(R.id.main_layout);
@@ -101,7 +101,7 @@ public class SessaoActivity extends AppCompatActivity {
         listSecoes.add(m);
 
         String[] from={"filme" ,"data", "sala"};
-        int[] to={R.id.tvDataSecao, R.id.tvSalaSecao};
+        int[] to={R.id.tvFilmeSecao, R.id.tvDataSecao, R.id.tvSalaSecao};
 
         SimpleAdapter simpleAdapter = new SimpleAdapter(this, listSecoes, R.layout.activity_list_view_secoes, from, to);
         listViewSecoes.setAdapter(simpleAdapter);
