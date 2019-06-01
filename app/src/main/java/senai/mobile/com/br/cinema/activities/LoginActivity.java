@@ -18,7 +18,6 @@ import senai.mobile.com.br.cinema.retrofit.RetrofitConfig;
 
 public class LoginActivity extends AppCompatActivity {
 
-    //private FirebaseAuth autenticacao;
     private EditText edtEmailLogin;
     private EditText edtSenhaLogin;
     private Button btnLogin;
@@ -67,21 +66,6 @@ public class LoginActivity extends AppCompatActivity {
     private boolean isLoginValido() {
         return !edtEmailLogin.getText().toString().equalsIgnoreCase("") || !edtSenhaLogin.getText().toString().equalsIgnoreCase("");
     }
-
-//    private void validarLogin() {
-//        autenticacao = ConfiguracaoFirebase.getFirebaseAuth();
-//        autenticacao.signInWithEmailAndPassword(usuario.getEmail().toString(), usuario.getSenha().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-//            @Override
-//            public void onComplete(@NonNull Task<AuthResult> task) {
-//                if (task.isSuccessful()) {
-//                    abrirTelaHome();
-//                    Toast.makeText(LoginActivity.this, "Login efetuado com sucesso", Toast.LENGTH_LONG).show();
-//                } else {
-//                    Toast.makeText(LoginActivity.this, "Usuário ou Senha inválidos! Tente novamente", Toast.LENGTH_LONG).show();
-//                }
-//            }
-//        });
-//    }
 
     private void abrirTelaHome() {
         Intent intent = new Intent(LoginActivity.this, HomeActivity.class);

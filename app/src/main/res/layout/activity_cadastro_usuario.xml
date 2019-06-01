@@ -20,6 +20,13 @@
         android:textSize="25sp"/>
 
     <EditText
+        android:id="@+id/edtCadNome"
+        android:layout_width="match_parent"
+        android:hint="Nome"
+        android:inputType="textPersonName"
+        android:layout_height="wrap_content" />
+
+    <EditText
         android:id="@+id/edtCadEmail"
         android:layout_width="match_parent"
         android:hint="E-mail"
@@ -40,11 +47,14 @@
         android:inputType="textPassword"
         android:layout_height="wrap_content" />
 
-    <EditText
-        android:id="@+id/edtCadNome"
+    <Spinner
+        android:id="@+id/edtCadSexo"
         android:layout_width="match_parent"
-        android:hint="Nome"
-        android:inputType="textPersonName"
+        android:layout_height="wrap_content" />
+
+    <Spinner
+        android:id="@+id/edtCadEstadoCivil"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Button

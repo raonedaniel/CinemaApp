@@ -26,10 +26,12 @@ import senai.mobile.com.br.cinema.model.Usuario;
 
 public class CadastroUsuarioActivity extends AppCompatActivity {
 
+    private EditText nome;
     private EditText email;
     private EditText senha1;
     private EditText senha2;
-    private EditText nome;
+    private EditText sexo;
+    private EditText estadoCivil;
     private Button btnCadastrar;
     private Button btnCancelar;
     private FirebaseAuth autenticacao;
@@ -42,10 +44,11 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_usuario);
 
-        nome = (EditText) findViewById(R.id.edtCadNome);
-        email = (EditText) findViewById(R.id.edtCadEmail);
-        senha1 = (EditText) findViewById(R.id.edtCadSenha1);
-        senha2 = (EditText) findViewById(R.id.edtCadSenha2);
+        nome = findViewById(R.id.edtCadNome);
+        email = findViewById(R.id.edtCadEmail);
+        senha1 = findViewById(R.id.edtCadSenha1);
+        senha2 = findViewById(R.id.edtCadSenha2);
+        //sexo = findViewById(R.id.edtCadSexo);
         btnCadastrar = (Button) findViewById(R.id.btnCadastrar);
         btnCancelar = (Button) findViewById(R.id.btnCancelar);
 
@@ -56,9 +59,11 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
 
                     usuario = new Usuario();
 
+                    usuario.setNome(nome.getText().toString());
                     usuario.setEmail(email.getText().toString());
                     usuario.setSenha(senha1.getText().toString());
-                    usuario.setNome(nome.getText().toString());
+                    //usuario.setSexo();
+
 
                     // chamada de método para cadastro de Usuários
                     cadastrarUsuario();
