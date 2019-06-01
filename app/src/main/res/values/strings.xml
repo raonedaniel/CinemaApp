@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">Secoes</string>
+    <string name="app_name">Cinema</string>
+
     <string-array name="Tela_de_seções">
         <item>Ação</item>
         <item>Aventura</item>

@@ -36,7 +36,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        autenticacao = FirebaseAuth.getInstance();
+        //autenticacao = FirebaseAuth.getInstance();
 
         listViewFilmes = (ListView) findViewById(R.id.listViewFilmes);
         btnTelaSinopse = (Button) findViewById(R.id.btnTelaSinopse);
@@ -77,11 +77,11 @@ public class HomeActivity extends AppCompatActivity {
 
     private void deslogarUsuario() {
 
-        autenticacao.signOut();
+        //autenticacao.signOut();
 
         Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
         startActivity(intent);
-        finish();
+        //finish();
 
     }
 
@@ -95,9 +95,7 @@ public class HomeActivity extends AppCompatActivity {
                 List<Filme> listFilmes = response.body();
 
                 for (Filme filme : listFilmes) {
-                    if (filme.isStatus()) {
-                        exibir(filme);
-                    }
+                    exibir(filme);
                 }
 
             }

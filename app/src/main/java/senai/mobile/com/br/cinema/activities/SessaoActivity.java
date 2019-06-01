@@ -1,9 +1,11 @@
 package senai.mobile.com.br.cinema.activities;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -47,11 +49,6 @@ public class SessaoActivity extends AppCompatActivity {
         ArrayAdapter adapter1 = ArrayAdapter.createFromResource(this, R.array.Tela_de_seções, android.R.layout.simple_spinner_item);
         sistemas.setAdapter(adapter);
 
-//        sistemas = (Spinner) findViewById(R.id.Aventura);
-//        ArrayAdapter adapter2 = ArrayAdapter.createFromResource(this, R.array.Tela_de_seções, android.R.layout.simple_spinner_item);
-//        sistemas.setAdapter(adapter);
-
-
         mainLayout = findViewById(R.id.main_layout);
         segundoLayout = findViewById(R.id.segundo_layout);
 
@@ -63,6 +60,8 @@ public class SessaoActivity extends AppCompatActivity {
         }
 
         listarSessoes();
+
+        //irParaTelaDePagamento();
 
 
     }
@@ -107,5 +106,20 @@ public class SessaoActivity extends AppCompatActivity {
         listViewSecoes.setAdapter(simpleAdapter);
 
     }
+
+    public void irParaTelaDePagamento() {
+
+        this.btnComprarIngresso.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(SessaoActivity.this, PagamentoActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+    }
+
 
 }
