@@ -34,6 +34,13 @@
         android:layout_height="wrap_content" />
 
     <EditText
+        android:id="@+id/edtCadIdade"
+        android:layout_width="match_parent"
+        android:hint="Idade"
+        android:inputType="textPersonName"
+        android:layout_height="wrap_content" />
+
+    <EditText
         android:id="@+id/edtCadSenha1"
         android:layout_width="match_parent"
         android:hint="Senha"
@@ -48,12 +55,12 @@
         android:layout_height="wrap_content" />
 
     <Spinner
-        android:id="@+id/edtCadSexo"
+        android:id="@+id/spinnerSexo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Spinner
-        android:id="@+id/edtCadEstadoCivil"
+        android:id="@+id/spinnerEstadoCivil"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
