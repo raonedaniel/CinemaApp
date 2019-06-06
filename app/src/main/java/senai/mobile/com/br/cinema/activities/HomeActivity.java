@@ -9,10 +9,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
-
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import retrofit2.Call;
@@ -22,14 +18,12 @@ import senai.mobile.com.br.cinema.R;
 import senai.mobile.com.br.cinema.adapters.AdapterListaFilmes;
 import senai.mobile.com.br.cinema.model.Filme;
 import senai.mobile.com.br.cinema.retrofit.RetrofitConfig;
+import senai.mobile.com.br.cinema.service.FilmeService;
 
 public class HomeActivity extends AppCompatActivity {
 
     private ListView listViewFilmes;
-    //private List<HashMap<String, String>> listFilmes = new ArrayList<>();
     private Button btnTelaSinopse;
-
-
     private List<Filme> listFilmes;
     private AdapterListaFilmes adapterListaFilmes;
 
@@ -41,12 +35,9 @@ public class HomeActivity extends AppCompatActivity {
         listViewFilmes = findViewById(R.id.listViewFilmes);
         btnTelaSinopse = findViewById(R.id.btnTelaSinopse);
 
+        //irParaTelaDeSinopse();
+
         listarFilmes();
-
-        this.adapterListaFilmes = new AdapterListaFilmes(HomeActivity.this, this.listFilmes);
-
-        this.listViewFilmes.setAdapter(this.adapterListaFilmes);
-
     }
 
     @Override
@@ -82,37 +73,22 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
-//    public void listarFilmes() {
-//
-//        Call<List<Filme>> call = new RetrofitConfig().getFilmeService().list();
-//        call.enqueue(new Callback<List<Filme>>() {
-//
-//            @Override
-//            public void onResponse(Call<List<Filme>> call, Response<List<Filme>> response) {
-//                List<Filme> listFilmes = response.body();
-//
-//                for (Filme filme : listFilmes) {
-//                    exibir(filme);
-//                }
-//
-//            }
-//
-//            @Override
-//            public void onFailure(Call<List<Filme>> call, Throwable t) {
-//                Log.e("FilmeService   ", "Erro ao buscar o Filme:" + t.getMessage());
-//            }
-//
-//        });
-//    }
+    private void listarFilmes() {
+        FilmeService api = new RetrofitConfig().getFilmeService();
 
-    public void listarFilmes() {
+        Call<List<Filme>> call = api.list();
 
-        Call<List<Filme>> call = new RetrofitConfig().getFilmeService().list();
         call.enqueue(new Callback<List<Filme>>() {
 
             @Override
             public void onResponse(Call<List<Filme>> call, Response<List<Filme>> response) {
+
                 listFilmes = response.body();
+
+                adapterListaFilmes = new AdapterListaFilmes(HomeActivity.this, listFilmes);
+
+                listViewFilmes.setAdapter(adapterListaFilmes);
+
             }
 
             @Override
@@ -122,21 +98,6 @@ public class HomeActivity extends AppCompatActivity {
 
         });
     }
-
-//    public void exibir(Filme filme) {
-//
-//        HashMap<String, String> m = new HashMap();
-//
-//        m.put("nome", filme.getNome());
-//        listFilmes.add(m);
-//
-//        String[] from={"nome"};
-//        int[] to={R.id.tvNomeFilme};
-//
-//        SimpleAdapter simpleAdapter = new SimpleAdapter(this, listFilmes, R.layout.activity_listar_filmes, from, to);
-//        listViewFilmes.setAdapter(simpleAdapter);
-//
-//    }
 
     public void irParaTelaDeSinopse() {
 

@@ -15,21 +15,15 @@ import senai.mobile.com.br.cinema.R;
 import senai.mobile.com.br.cinema.activities.SinopseActivity;
 import senai.mobile.com.br.cinema.model.Filme;
 
-public class AdapterListaFilmes extends BaseAdapter {
+public class AdapterSinopse extends BaseAdapter {
 
     private Context context;
     private List<Filme> listFilmes;
     private LayoutInflater inflater;
 
-    public AdapterListaFilmes(final Context context, final List<Filme> listFilmes) {
-        this.context = context;
-        this.listFilmes = listFilmes;
-    }
-
     @Override
     public int getCount() {
         return this.listFilmes.size();
-        //return this.listFilmes != null ? this.listFilmes.size() : 0;
     }
 
     @Override
@@ -51,7 +45,7 @@ public class AdapterListaFilmes extends BaseAdapter {
 
         if (view == null) {
             view = LayoutInflater.from(context).
-                    inflate(R.layout.activity_listar_filmes,
+                    inflate(R.layout.activity_detalhes_do_filme,
                             viewGroup, false);
         }
 

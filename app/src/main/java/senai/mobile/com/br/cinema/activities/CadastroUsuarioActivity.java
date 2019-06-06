@@ -32,7 +32,6 @@ public class CadastroUsuarioActivity extends AppCompatActivity implements Adapte
     private Button btnCancelar;
     private Usuario usuario;
 
-    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
