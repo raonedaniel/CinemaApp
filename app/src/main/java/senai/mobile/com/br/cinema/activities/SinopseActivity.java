@@ -20,7 +20,7 @@ public class SinopseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sinopse);
 
-        listViewDetalhesDoFilme = findViewById(R.id.listViewDetalhesDoFilme);
+        //listViewDetalhesDoFilme = findViewById(R.id.listViewDetalhesDoFilme);
 
     }
 

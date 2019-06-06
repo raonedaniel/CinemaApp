@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import java.util.List;
@@ -18,7 +17,6 @@ import senai.mobile.com.br.cinema.R;
 import senai.mobile.com.br.cinema.adapters.AdapterListaFilmes;
 import senai.mobile.com.br.cinema.model.Filme;
 import senai.mobile.com.br.cinema.retrofit.RetrofitConfig;
-import senai.mobile.com.br.cinema.service.FilmeService;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -34,8 +32,6 @@ public class HomeActivity extends AppCompatActivity {
 
         listViewFilmes = findViewById(R.id.listViewFilmes);
         btnTelaSinopse = findViewById(R.id.btnTelaSinopse);
-
-        //irParaTelaDeSinopse();
 
         listarFilmes();
     }
@@ -74,10 +70,8 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void listarFilmes() {
-        FilmeService api = new RetrofitConfig().getFilmeService();
 
-        Call<List<Filme>> call = api.list();
-
+        Call<List<Filme>> call = new RetrofitConfig().getFilmeService().list();
         call.enqueue(new Callback<List<Filme>>() {
 
             @Override
@@ -97,20 +91,6 @@ public class HomeActivity extends AppCompatActivity {
             }
 
         });
-    }
-
-    public void irParaTelaDeSinopse() {
-
-        this.btnTelaSinopse.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent(HomeActivity.this, SinopseActivity.class);
-                startActivity(intent);
-
-            }
-        });
-
     }
 
 

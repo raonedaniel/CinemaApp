@@ -19,7 +19,12 @@ public class AdapterSinopse extends BaseAdapter {
 
     private Context context;
     private List<Filme> listFilmes;
+    private Filme filme;
     private LayoutInflater inflater;
+
+    public AdapterSinopse(final Filme filme) {
+        this.filme = filme;
+    }
 
     @Override
     public int getCount() {
@@ -45,27 +50,22 @@ public class AdapterSinopse extends BaseAdapter {
 
         if (view == null) {
             view = LayoutInflater.from(context).
-                    inflate(R.layout.activity_detalhes_do_filme,
+                    inflate(R.layout.activity_sinopse,
                             viewGroup, false);
         }
 
-        Filme filme = parseItem(position);
+        TextView tvSinopse, tvGenero, tvDuracao;
 
-        TextView tvNomeFilme = view.findViewById(R.id.tvNomeFilme);
-        Button btnTelaSinopse = view.findViewById(R.id.btnTelaSinopse);
+        tvSinopse = view.findViewById(R.id.tvSinopseFilme);
+        tvGenero = view.findViewById(R.id.tvGeneroFilme);
+        tvDuracao = view.findViewById(R.id.tvDuracaoFilme);
 
-        tvNomeFilme.setText(filme.getNome());
-        btnTelaSinopse.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent(context, SinopseActivity.class);
-                context.startActivity(intent);
-
-            }
-        });
+        tvSinopse.setText(filme.getSinopse());
+        tvGenero.setText(filme.getGenero());
+        tvDuracao.setText(filme.getDuracao());
 
         return view;
 
     }
+
 }
