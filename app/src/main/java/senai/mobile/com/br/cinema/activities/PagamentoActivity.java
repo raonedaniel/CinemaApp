@@ -18,15 +18,14 @@ public class PagamentoActivity extends AppCompatActivity implements AdapterView.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pagamento);
 
-        Button button3 = findViewById(R.id.button3);
-        Button button4 = findViewById(R.id.button4);
+        Button btnEfetuarPagamentoInteira = findViewById(R.id.btnEfetuarPagamentoInteira);
+        Button btnEfetuarPagamentoMeia = findViewById(R.id.btnEfetuarPagamentoMeia);
 
-        button3.setOnClickListener(new View.OnClickListener() {
+        btnEfetuarPagamentoInteira.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 switch (v.getId()){
-                    case R.id.button3:
-                        //Toast.makeText(this, "Pagamento Efetuado com Sucesso!", Toast.LENGTH_SHORT);
+                    case R.id.btnEfetuarPagamentoInteira:
                         Toast.makeText(PagamentoActivity.this, "Pagamento Efetuado com Sucesso!", Toast.LENGTH_LONG).show();
                         break;
                 }
@@ -34,31 +33,17 @@ public class PagamentoActivity extends AppCompatActivity implements AdapterView.
             }
         });
 
-        button4.setOnClickListener(new View.OnClickListener() {
+        btnEfetuarPagamentoMeia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 switch (v.getId()){
-                    case R.id.button4:
-                        //Toast.makeText(this, "Pagamento Efetuado com Sucesso!", Toast.LENGTH_SHORT);
+                    case R.id.btnEfetuarPagamentoMeia:
                         Toast.makeText(PagamentoActivity.this, "Pagamento Efetuado com Sucesso!", Toast.LENGTH_LONG).show();
                         break;
                 }
 
             }
         });
-
-
-        Spinner spinner = findViewById(R.id.spinner1);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.numeros, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
-
-        Spinner spinner2 = findViewById(R.id.spinner2);
-        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.numero, android.R.layout.simple_spinner_item);
-        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner2.setAdapter(adapter1);
-        spinner2.setOnItemSelectedListener(this);
 
     }
 

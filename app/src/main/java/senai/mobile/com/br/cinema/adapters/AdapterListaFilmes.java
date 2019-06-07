@@ -2,6 +2,7 @@ package senai.mobile.com.br.cinema.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,9 +59,11 @@ public class AdapterListaFilmes extends BaseAdapter {
 
         final Filme filme = parseItem(position);
 
+
         TextView tvNomeFilme = view.findViewById(R.id.tvNomeFilme);
         Button btnTelaSinopse = view.findViewById(R.id.btnTelaSinopse);
-
+        btnTelaSinopse.setTag(filme);
+//
         tvNomeFilme.setText(filme.getNome());
         btnTelaSinopse.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,17 +71,19 @@ public class AdapterListaFilmes extends BaseAdapter {
 
 //                AdapterSinopse adapterSinopse = new AdapterSinopse(filme);
 
-                TextView tvSinopse, tvGenero, tvDuracao;
+//                TextView tvSinopse, tvGenero, tvDuracao;
+//
 
-                tvSinopse = v.findViewById(R.id.tvSinopseFilme);
-                tvGenero = v.findViewById(R.id.tvGeneroFilme);
-                tvDuracao = v.findViewById(R.id.tvDuracaoFilme);
+//
 
-                tvSinopse.setText(filme.getSinopse());
-                tvGenero.setText(filme.getGenero());
-                tvDuracao.setText(filme.getDuracao());
 
                 Intent intent = new Intent(context, SinopseActivity.class);
+/**
+ * https://github.com/livroandroid/5ed/blob/master/capitulos/cap04-activity/HelloActivity/app/src/main/java/br/com/livroandroid/cap04_activity/MainActivity.java
+ */
+                Bundle params = new Bundle();
+                params.putParcelable("filme", filme);
+                intent.putExtras(params);
                 context.startActivity(intent);
 
             }

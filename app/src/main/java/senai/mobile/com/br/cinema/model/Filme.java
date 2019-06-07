@@ -1,8 +1,11 @@
 package senai.mobile.com.br.cinema.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.List;
 
-public class Filme {
+public class Filme implements Parcelable {
 
     private Integer id;
 
@@ -17,6 +20,31 @@ public class Filme {
     private boolean status;
 
     private List<Secao> secoes;
+
+    protected Filme(Parcel in) {
+        if (in.readByte() == 0) {
+            id = null;
+        } else {
+            id = in.readInt();
+        }
+        nome = in.readString();
+        genero = in.readString();
+        sinopse = in.readString();
+        duracao = in.readString();
+        status = in.readByte() != 0;
+    }
+
+    public static final Creator<Filme> CREATOR = new Creator<Filme>() {
+        @Override
+        public Filme createFromParcel(Parcel in) {
+            return new Filme(in);
+        }
+
+        @Override
+        public Filme[] newArray(int size) {
+            return new Filme[size];
+        }
+    };
 
     public Integer getId() {
         return id;
@@ -85,5 +113,25 @@ public class Filme {
                 ", status=" + status +
                 ", secoes=" + secoes +
                 '}';
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        if (id == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(id);
+        }
+        dest.writeString(nome);
+        dest.writeString(genero);
+        dest.writeString(sinopse);
+        dest.writeString(duracao);
+        dest.writeByte((byte) (status ? 1 : 0));
     }
 }
