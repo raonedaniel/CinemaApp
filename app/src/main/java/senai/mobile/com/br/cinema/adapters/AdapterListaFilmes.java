@@ -59,23 +59,14 @@ public class AdapterListaFilmes extends BaseAdapter {
 
         final Filme filme = parseItem(position);
 
-
         TextView tvNomeFilme = view.findViewById(R.id.tvNomeFilme);
         Button btnTelaSinopse = view.findViewById(R.id.btnTelaSinopse);
         btnTelaSinopse.setTag(filme);
-//
+
         tvNomeFilme.setText(filme.getNome());
         btnTelaSinopse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-//                AdapterSinopse adapterSinopse = new AdapterSinopse(filme);
-
-//                TextView tvSinopse, tvGenero, tvDuracao;
-//
-
-//
-
 
                 Intent intent = new Intent(context, SinopseActivity.class);
 /**

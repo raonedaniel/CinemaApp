@@ -4,9 +4,11 @@ public class Ingresso {
 
     private Integer id;
 
-    private Usuario idUsuario;
+    private Integer idUsuario;
 
-    private Secao idSessao;
+    private Integer idSecao;
+
+    private String tipoIngresso;
 
     public Integer getId() {
         return id;
@@ -16,20 +18,28 @@ public class Ingresso {
         this.id = id;
     }
 
-    public Usuario getIdUsuario() {
+    public Integer getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(Usuario idUsuario) {
+    public void setIdUsuario(Integer idUsuario) {
         this.idUsuario = idUsuario;
     }
 
-    public Secao getIdSessao() {
-        return idSessao;
+    public Integer getIdSecao() {
+        return idSecao;
     }
 
-    public void setIdSessao(Secao idSessao) {
-        this.idSessao = idSessao;
+    public void setIdSecao(Integer idSecao) {
+        this.idSecao = idSecao;
+    }
+
+    public String getTipoIngresso() {
+        return tipoIngresso;
+    }
+
+    public void setTipoIngresso(String tipoIngresso) {
+        this.tipoIngresso = tipoIngresso;
     }
 
     @Override
@@ -37,7 +47,8 @@ public class Ingresso {
         return "Ingresso{" +
                 "id=" + id +
                 ", idUsuario=" + idUsuario +
-                ", idSessao=" + idSessao +
+                ", idSecao=" + idSecao +
+                ", tipoIngresso='" + tipoIngresso + '\'' +
                 '}';
     }
 }

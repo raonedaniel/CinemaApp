@@ -13,13 +13,16 @@ import java.util.List;
 
 import senai.mobile.com.br.cinema.R;
 import senai.mobile.com.br.cinema.activities.PagamentoActivity;
+import senai.mobile.com.br.cinema.activities.SessaoActivity;
 import senai.mobile.com.br.cinema.model.Secao;
+import senai.mobile.com.br.cinema.model.Session;
 
 public class AdapterListaSecoes extends BaseAdapter {
 
     private Context context;
     private List<Secao> listSecoes;
     private LayoutInflater inflater;
+    private Session session;
 
     public AdapterListaSecoes(final Context context, final List<Secao> listSecoes) {
         this.context = context;
@@ -55,6 +58,8 @@ public class AdapterListaSecoes extends BaseAdapter {
         }
 
         Secao secao = parseItem(position);
+
+        session.setSecao(secao.getId());
 
         TextView tvFilmeSecao = view.findViewById(R.id.tvFilmeSecao);
         TextView tvDataSecao = view.findViewById(R.id.tvDataSecao);

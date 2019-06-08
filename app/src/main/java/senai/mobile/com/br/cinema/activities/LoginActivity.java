@@ -14,6 +14,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import senai.mobile.com.br.cinema.R;
 import senai.mobile.com.br.cinema.dto.UsuarioDTO;
+import senai.mobile.com.br.cinema.model.Session;
 import senai.mobile.com.br.cinema.retrofit.RetrofitConfig;
 
 public class LoginActivity extends AppCompatActivity {
@@ -23,6 +24,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button btnLogin;
     private TextView tvLinkCadastroDeUsuario;
     private UsuarioDTO usuarioDTO;
+    private Session session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class LoginActivity extends AppCompatActivity {
         edtSenhaLogin = findViewById(R.id.edtESenha);
         btnLogin = findViewById(R.id.btnLogin);
         tvLinkCadastroDeUsuario = findViewById(R.id.tvLinkCadastroDeUsuario);
+        session = new Session(LoginActivity.this);
 
         tvLinkCadastroDeUsuario.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -81,6 +84,8 @@ public class LoginActivity extends AppCompatActivity {
 
                 if(response.isSuccessful()) {
                     Toast.makeText(getApplicationContext(), "Usuário logado com sucesso", Toast.LENGTH_LONG).show();
+                    UsuarioDTO usuarioDTOComId = response.body();
+                    session.setUsuario(usuarioDTOComId.getId());
                     abrirTelaHome();
                 }
 

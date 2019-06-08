@@ -3,6 +3,7 @@ package senai.mobile.com.br.cinema.retrofit;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import senai.mobile.com.br.cinema.service.FilmeService;
+import senai.mobile.com.br.cinema.service.IngressoService;
 import senai.mobile.com.br.cinema.service.SessaoService;
 import senai.mobile.com.br.cinema.service.UsuarioService;
 
@@ -28,6 +29,10 @@ public class RetrofitConfig {
 
     public UsuarioService getUsuarioService() {
         return this.retrofit.create(UsuarioService.class);
+    }
+
+    public IngressoService getIngressoService() {
+        return this.retrofit.create(IngressoService.class);
     }
 
 }

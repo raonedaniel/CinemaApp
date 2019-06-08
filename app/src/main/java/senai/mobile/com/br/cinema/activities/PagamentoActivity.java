@@ -9,14 +9,26 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import senai.mobile.com.br.cinema.R;
+import senai.mobile.com.br.cinema.dto.UsuarioDTO;
+import senai.mobile.com.br.cinema.model.Ingresso;
+import senai.mobile.com.br.cinema.model.Session;
+import senai.mobile.com.br.cinema.retrofit.RetrofitConfig;
 
 public class PagamentoActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+
+    private Session session;
+    private Ingresso ingresso;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pagamento);
+
+        session = new Session(PagamentoActivity.this);
 
         Button btnEfetuarPagamentoInteira = findViewById(R.id.btnEfetuarPagamentoInteira);
         Button btnEfetuarPagamentoMeia = findViewById(R.id.btnEfetuarPagamentoMeia);
@@ -24,11 +36,15 @@ public class PagamentoActivity extends AppCompatActivity implements AdapterView.
         btnEfetuarPagamentoInteira.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switch (v.getId()){
-                    case R.id.btnEfetuarPagamentoInteira:
-                        Toast.makeText(PagamentoActivity.this, "Pagamento Efetuado com Sucesso!", Toast.LENGTH_LONG).show();
-                        break;
-                }
+//                switch (v.getId()){
+//                    case R.id.btnEfetuarPagamentoInteira:
+//                        Toast.makeText(PagamentoActivity.this, "Pagamento Efetuado com Sucesso!", Toast.LENGTH_LONG).show();
+//                        break;
+//                }
+
+                ingresso.setIdUsuario(session.getUsuario());
+                ingresso.setIdSecao(session.getSecao());
+                ingresso.setTipoIngresso("Meia");
 
             }
         });
@@ -36,11 +52,15 @@ public class PagamentoActivity extends AppCompatActivity implements AdapterView.
         btnEfetuarPagamentoMeia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switch (v.getId()){
-                    case R.id.btnEfetuarPagamentoMeia:
-                        Toast.makeText(PagamentoActivity.this, "Pagamento Efetuado com Sucesso!", Toast.LENGTH_LONG).show();
-                        break;
-                }
+//                switch (v.getId()){
+//                    case R.id.btnEfetuarPagamentoMeia:
+//                        Toast.makeText(PagamentoActivity.this, "Pagamento Efetuado com Sucesso!", Toast.LENGTH_LONG).show();
+//                        break;
+//                }
+
+                ingresso.setIdUsuario(session.getUsuario());
+                ingresso.setIdSecao(session.getSecao());
+                ingresso.setTipoIngresso("Inteira");
 
             }
         });
@@ -56,6 +76,27 @@ public class PagamentoActivity extends AppCompatActivity implements AdapterView.
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    public void enviarPost(Ingresso ingresso) {
+
+        Call<Ingresso> call = new RetrofitConfig().getIngressoService().postIngresso(ingresso);
+        call.enqueue(new Callback<Ingresso>() {
+            @Override
+            public void onResponse(Call<Ingresso> call, Response<Ingresso> response) {
+
+                if(response.isSuccessful()) {
+                    Toast.makeText(PagamentoActivity.this, "Pagamento Efetuado com Sucesso!", Toast.LENGTH_LONG).show();
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<Ingresso> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "Erro na compra de ingressos", Toast.LENGTH_LONG).show();
+            }
+
+        });
     }
 
 }

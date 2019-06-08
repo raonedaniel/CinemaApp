@@ -2,9 +2,19 @@ package senai.mobile.com.br.cinema.dto;
 
 public class UsuarioDTO {
 
+    private Integer id;
+
     private String email;
 
     private String senha;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getEmail() {
         return email;
