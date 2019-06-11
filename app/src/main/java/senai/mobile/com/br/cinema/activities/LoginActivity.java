@@ -14,7 +14,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import senai.mobile.com.br.cinema.R;
 import senai.mobile.com.br.cinema.dto.UsuarioDTO;
-import senai.mobile.com.br.cinema.model.Session;
+import senai.mobile.com.br.cinema.session.Session;
 import senai.mobile.com.br.cinema.retrofit.RetrofitConfig;
 
 public class LoginActivity extends AppCompatActivity {

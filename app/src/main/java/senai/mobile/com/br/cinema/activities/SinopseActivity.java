@@ -23,7 +23,7 @@ public class SinopseActivity extends AppCompatActivity {
         TextView tvDuracao = findViewById(R.id.tvDuracaoFilme);
 
         Bundle args = getIntent().getExtras();
-        Filme filme =  args.getParcelable("filme");
+        Filme filme = args.getParcelable("filme");
 
         tvSinopse.setText(filme.getSinopse());
         tvGenero.setText(filme.getGenero());

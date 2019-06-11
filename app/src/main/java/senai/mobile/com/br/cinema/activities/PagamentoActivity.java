@@ -1,27 +1,28 @@
 package senai.mobile.com.br.cinema.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import senai.mobile.com.br.cinema.R;
-import senai.mobile.com.br.cinema.dto.UsuarioDTO;
 import senai.mobile.com.br.cinema.model.Ingresso;
-import senai.mobile.com.br.cinema.model.Session;
+import senai.mobile.com.br.cinema.model.Secao;
+import senai.mobile.com.br.cinema.session.Session;
 import senai.mobile.com.br.cinema.retrofit.RetrofitConfig;
 
 public class PagamentoActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private Session session;
     private Ingresso ingresso;
+    private Secao secao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,37 +31,50 @@ public class PagamentoActivity extends AppCompatActivity implements AdapterView.
 
         session = new Session(PagamentoActivity.this);
 
+        Bundle args = getIntent().getExtras();
+        secao = args.getParcelable("secao");
+
         Button btnEfetuarPagamentoInteira = findViewById(R.id.btnEfetuarPagamentoInteira);
         Button btnEfetuarPagamentoMeia = findViewById(R.id.btnEfetuarPagamentoMeia);
+        Button btnVoltarTelaSecao = findViewById(R.id.btnVoltarTelaSecao);
+
+        // get
+        TextView tvValorMeia = findViewById(R.id.tvValorMeia);
+        TextView tvValorInteira = findViewById(R.id.tvValorInteira);
+
+        // set
+        float valorMeia = (secao.getValorDoIngresso() / 2);
+        tvValorInteira.setText(String.valueOf(secao.getValorDoIngresso()));
+        tvValorMeia.setText(String.valueOf(valorMeia));
 
         btnEfetuarPagamentoInteira.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                switch (v.getId()){
-//                    case R.id.btnEfetuarPagamentoInteira:
-//                        Toast.makeText(PagamentoActivity.this, "Pagamento Efetuado com Sucesso!", Toast.LENGTH_LONG).show();
-//                        break;
-//                }
-
+                ingresso = new Ingresso();
                 ingresso.setIdUsuario(session.getUsuario());
-                ingresso.setIdSecao(session.getSecao());
-                ingresso.setTipoIngresso("Meia");
-
+                ingresso.setIdSecao(secao.getId());
+                ingresso.setTipoIngresso("Inteira");
+                enviarPost(ingresso);
             }
         });
 
         btnEfetuarPagamentoMeia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                switch (v.getId()){
-//                    case R.id.btnEfetuarPagamentoMeia:
-//                        Toast.makeText(PagamentoActivity.this, "Pagamento Efetuado com Sucesso!", Toast.LENGTH_LONG).show();
-//                        break;
-//                }
-
+                ingresso = new Ingresso();
                 ingresso.setIdUsuario(session.getUsuario());
-                ingresso.setIdSecao(session.getSecao());
-                ingresso.setTipoIngresso("Inteira");
+                ingresso.setIdSecao(secao.getId());
+                ingresso.setTipoIngresso("Meia");
+                enviarPost(ingresso);
+            }
+        });
+
+        btnVoltarTelaSecao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(PagamentoActivity.this, SessaoActivity.class);
+                startActivity(intent);
 
             }
         });
@@ -87,6 +101,7 @@ public class PagamentoActivity extends AppCompatActivity implements AdapterView.
 
                 if(response.isSuccessful()) {
                     Toast.makeText(PagamentoActivity.this, "Pagamento Efetuado com Sucesso!", Toast.LENGTH_LONG).show();
+                    abrirTelaHome();
                 }
 
             }
@@ -97,6 +112,12 @@ public class PagamentoActivity extends AppCompatActivity implements AdapterView.
             }
 
         });
+
+    }
+
+    private void abrirTelaHome() {
+        Intent intent = new Intent(PagamentoActivity.this, HomeActivity.class);
+        startActivity(intent);
     }
 
 }

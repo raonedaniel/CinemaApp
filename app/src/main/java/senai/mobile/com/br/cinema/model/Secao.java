@@ -1,68 +1,9 @@
 package senai.mobile.com.br.cinema.model;
 
-import java.util.List;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-public class Secao {
-
-//    private Integer id;
-//
-//    private String data;
-//
-//    private float valorDoIngresso;
-//
-//    private Sala idSala;
-//
-//    private Filme idFilme;
-//
-//    private List<Ingresso> ingressos;
-//
-//    public Integer getId() {
-//        return id;
-//    }
-//
-//    public void setId(Integer id) {
-//        this.id = id;
-//    }
-//
-//    public String getData() {
-//        return data;
-//    }
-//
-//    public void setData(String data) {
-//        this.data = data;
-//    }
-//
-//    public float getValorDoIngresso() {
-//        return valorDoIngresso;
-//    }
-//
-//    public void setValorDoIngresso(float valorDoIngresso) {
-//        this.valorDoIngresso = valorDoIngresso;
-//    }
-//
-//    public Sala getIdSala() {
-//        return idSala;
-//    }
-//
-//    public void setIdSala(Sala idSala) {
-//        this.idSala = idSala;
-//    }
-//
-//    public Filme getIdFilme() {
-//        return idFilme;
-//    }
-//
-//    public void setIdFilme(Filme idFilme) {
-//        this.idFilme = idFilme;
-//    }
-//
-//    public List<Ingresso> getIngressos() {
-//        return ingressos;
-//    }
-//
-//    public void setIngressos(List<Ingresso> ingressos) {
-//        this.ingressos = ingressos;
-//    }
+public class Secao implements Parcelable {
 
     private Integer id;
 
@@ -73,6 +14,30 @@ public class Secao {
     private String numeroDaSala;
 
     private String nomeDoFilme;
+
+    public static final Creator<Secao> CREATOR = new Creator<Secao>() {
+        @Override
+        public Secao createFromParcel(Parcel in) {
+            return new Secao(in);
+        }
+
+        @Override
+        public Secao[] newArray(int size) {
+            return new Secao[size];
+        }
+    };
+
+    protected Secao(Parcel in) {
+        if (in.readByte() == 0) {
+            id = null;
+        } else {
+            id = in.readInt();
+        }
+        data = in.readString();
+        valorDoIngresso = in.readFloat();
+        numeroDaSala = in.readString();
+        nomeDoFilme = in.readString();
+    }
 
     public Integer getId() {
         return id;
@@ -123,5 +88,24 @@ public class Secao {
                 ", numeroDaSala='" + numeroDaSala + '\'' +
                 ", nomeDoFilme='" + nomeDoFilme + '\'' +
                 '}';
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        if (id == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(id);
+        }
+        dest.writeString(data);
+        dest.writeFloat(valorDoIngresso);
+        dest.writeString(numeroDaSala);
+        dest.writeString(nomeDoFilme);
     }
 }

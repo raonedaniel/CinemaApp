@@ -2,6 +2,7 @@ package senai.mobile.com.br.cinema.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,16 +14,13 @@ import java.util.List;
 
 import senai.mobile.com.br.cinema.R;
 import senai.mobile.com.br.cinema.activities.PagamentoActivity;
-import senai.mobile.com.br.cinema.activities.SessaoActivity;
 import senai.mobile.com.br.cinema.model.Secao;
-import senai.mobile.com.br.cinema.model.Session;
 
 public class AdapterListaSecoes extends BaseAdapter {
 
     private Context context;
     private List<Secao> listSecoes;
     private LayoutInflater inflater;
-    private Session session;
 
     public AdapterListaSecoes(final Context context, final List<Secao> listSecoes) {
         this.context = context;
@@ -57,9 +55,7 @@ public class AdapterListaSecoes extends BaseAdapter {
                             viewGroup, false);
         }
 
-        Secao secao = parseItem(position);
-
-        session.setSecao(secao.getId());
+        final Secao secao = parseItem(position);
 
         TextView tvFilmeSecao = view.findViewById(R.id.tvFilmeSecao);
         TextView tvDataSecao = view.findViewById(R.id.tvDataSecao);
@@ -74,7 +70,11 @@ public class AdapterListaSecoes extends BaseAdapter {
             @Override
             public void onClick(View v) {
 
+                Bundle params = new Bundle();
+                params.putParcelable("secao", secao);
+
                 Intent intent = new Intent(context, PagamentoActivity.class);
+                intent.putExtras(params);
                 context.startActivity(intent);
 
             }

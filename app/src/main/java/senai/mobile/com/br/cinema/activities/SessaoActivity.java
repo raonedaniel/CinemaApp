@@ -18,6 +18,7 @@ import retrofit2.Response;
 import senai.mobile.com.br.cinema.R;
 import senai.mobile.com.br.cinema.adapters.AdapterListaSecoes;
 import senai.mobile.com.br.cinema.model.Secao;
+import senai.mobile.com.br.cinema.session.Session;
 import senai.mobile.com.br.cinema.retrofit.RetrofitConfig;
 
 public class SessaoActivity extends AppCompatActivity {
@@ -29,11 +30,14 @@ public class SessaoActivity extends AppCompatActivity {
     private List<Secao> listSecoes;
     private Button btnComprarIngresso;
     private AdapterListaSecoes adapterListaSecoes;
+    private Session session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sessao);
+
+        session = new Session(SessaoActivity.this);
 
         listViewSecoes = (ListView) findViewById(R.id.listViewSecoes);
         btnComprarIngresso = (Button) findViewById(R.id.btnComprarIngresso);
@@ -68,11 +72,15 @@ public class SessaoActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Secao>> call, Response<List<Secao>> response) {
 
-                listSecoes = response.body();
+                if (response.isSuccessful()) {
 
-                adapterListaSecoes = new AdapterListaSecoes(SessaoActivity.this, listSecoes);
+                    listSecoes = response.body();
 
-                listViewSecoes.setAdapter(adapterListaSecoes);
+                    adapterListaSecoes = new AdapterListaSecoes(SessaoActivity.this, listSecoes);
+
+                    listViewSecoes.setAdapter(adapterListaSecoes);
+
+                }
 
             }
 
