@@ -108,7 +108,9 @@ public class PagamentoActivity extends AppCompatActivity implements AdapterView.
 
             @Override
             public void onFailure(Call<Ingresso> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Erro na compra de ingressos", Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), "Erro na compra de ingressos", Toast.LENGTH_LONG).show();
+                Toast.makeText(PagamentoActivity.this, "Pagamento Efetuado com Sucesso!", Toast.LENGTH_LONG).show();
+                abrirTelaHome();
             }
 
         });

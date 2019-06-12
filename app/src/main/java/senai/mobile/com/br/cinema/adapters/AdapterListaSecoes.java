@@ -59,10 +59,12 @@ public class AdapterListaSecoes extends BaseAdapter {
 
         TextView tvFilmeSecao = view.findViewById(R.id.tvFilmeSecao);
         TextView tvDataSecao = view.findViewById(R.id.tvDataSecao);
+        TextView tvHoraSecao = view.findViewById(R.id.tvHoraSecao);
         TextView tvSalaSecao = view.findViewById(R.id.tvSalaSecao);
         Button btnComprarIngresso = view.findViewById(R.id.btnComprarIngresso);
 
         tvFilmeSecao.setText(secao.getNomeDoFilme());
+        tvHoraSecao.setText(secao.getHora());
         tvDataSecao.setText(secao.getData());
         tvSalaSecao.setText(secao.getNumeroDaSala());
 
