@@ -9,6 +9,8 @@ public class Secao implements Parcelable {
 
     private String data;
 
+    private String hora;
+
     private float valorDoIngresso;
 
     private String numeroDaSala;
@@ -34,6 +36,7 @@ public class Secao implements Parcelable {
             id = in.readInt();
         }
         data = in.readString();
+        hora = in.readString();
         valorDoIngresso = in.readFloat();
         numeroDaSala = in.readString();
         nomeDoFilme = in.readString();
@@ -53,6 +56,14 @@ public class Secao implements Parcelable {
 
     public void setData(String data) {
         this.data = data;
+    }
+
+    public String getHora() {
+        return hora;
+    }
+
+    public void setHora(String hora) {
+        this.hora = hora;
     }
 
     public float getValorDoIngresso() {
@@ -80,17 +91,6 @@ public class Secao implements Parcelable {
     }
 
     @Override
-    public String toString() {
-        return "Secao{" +
-                "id=" + id +
-                ", data='" + data + '\'' +
-                ", valorDoIngresso=" + valorDoIngresso +
-                ", numeroDaSala='" + numeroDaSala + '\'' +
-                ", nomeDoFilme='" + nomeDoFilme + '\'' +
-                '}';
-    }
-
-    @Override
     public int describeContents() {
         return 0;
     }
@@ -104,6 +104,7 @@ public class Secao implements Parcelable {
             dest.writeInt(id);
         }
         dest.writeString(data);
+        dest.writeString(hora);
         dest.writeFloat(valorDoIngresso);
         dest.writeString(numeroDaSala);
         dest.writeString(nomeDoFilme);
