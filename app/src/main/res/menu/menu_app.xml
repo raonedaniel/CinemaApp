@@ -9,6 +9,12 @@
         app:showAsAction="collapseActionView" />
 
     <item
+        android:id="@+id/action_filmes_indicados"
+        android:orderInCategory="1000"
+        android:title="Filmes indicados"
+        app:showAsAction="collapseActionView" />
+
+    <item
         android:id="@+id/action_sair"
         android:orderInCategory="1000"
         android:title="Desconectar"

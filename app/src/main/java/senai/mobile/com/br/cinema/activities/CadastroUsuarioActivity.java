@@ -60,7 +60,9 @@ public class CadastroUsuarioActivity extends AppCompatActivity implements Adapte
         btnCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (senha1.getText().toString().equals(senha2.getText().toString())) {
+                if (senha1.getText().toString().equals(senha2.getText().toString())
+                        || !senha1.getText().toString().isEmpty()
+                        || !senha2.getText().toString().isEmpty()) {
 
                     usuario = new Usuario();
 

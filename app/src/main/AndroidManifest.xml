@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".activities.FilmesIndicadosActivity"></activity>
         <activity android:name=".activities.CadastroUsuarioActivity" />
         <activity android:name=".activities.LoginActivity">
             <intent-filter>
@@ -22,7 +23,7 @@
         <activity android:name=".activities.HomeActivity" />
         <activity android:name=".activities.SessaoActivity" />
         <activity android:name=".activities.PagamentoActivity" />
-        <activity android:name=".activities.SinopseActivity"></activity>
+        <activity android:name=".activities.SinopseActivity" />
     </application>
 
 </manifest>

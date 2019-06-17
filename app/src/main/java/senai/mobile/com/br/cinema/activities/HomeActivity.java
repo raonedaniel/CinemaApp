@@ -51,6 +51,8 @@ public class HomeActivity extends AppCompatActivity {
             abrirTelaDeSessao();
         } else if (id == R.id.action_sair) {
             deslogarUsuario();
+        } else if (id == R.id.action_filmes_indicados) {
+            filmesIndicados();
         }
 
         return super.onOptionsItemSelected(item);
@@ -65,6 +67,13 @@ public class HomeActivity extends AppCompatActivity {
     private void deslogarUsuario() {
 
         Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
+        startActivity(intent);
+
+    }
+
+    private void filmesIndicados() {
+
+        Intent intent = new Intent(HomeActivity.this, FilmesIndicadosActivity.class);
         startActivity(intent);
 
     }
@@ -92,6 +101,5 @@ public class HomeActivity extends AppCompatActivity {
 
         });
     }
-
 
 }

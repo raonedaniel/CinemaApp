@@ -16,13 +16,13 @@ import senai.mobile.com.br.cinema.R;
 import senai.mobile.com.br.cinema.activities.SinopseActivity;
 import senai.mobile.com.br.cinema.model.Filme;
 
-public class AdapterListaFilmes extends BaseAdapter {
+public class AdapterListaFilmesIndicados extends BaseAdapter {
 
     private Context context;
     private List<Filme> listFilmes;
     private LayoutInflater inflater;
 
-    public AdapterListaFilmes(final Context context, final List<Filme> listFilmes) {
+    public AdapterListaFilmesIndicados(final Context context, final List<Filme> listFilmes) {
         this.context = context;
         this.listFilmes = listFilmes;
     }
@@ -52,32 +52,15 @@ public class AdapterListaFilmes extends BaseAdapter {
 
         if (view == null) {
             view = LayoutInflater.from(context).
-                    inflate(R.layout.activity_listar_filmes,
+                    inflate(R.layout.activity_listar_filmes_indicados,
                             viewGroup, false);
         }
 
         final Filme filme = parseItem(position);
 
-        TextView tvNomeFilme = view.findViewById(R.id.tvNomeFilme);
-        Button btnTelaSinopse = view.findViewById(R.id.btnTelaSinopse);
-        btnTelaSinopse.setTag(filme);
+        TextView tvNomeFilme = view.findViewById(R.id.tvNomeFilmeIndicado);
 
         tvNomeFilme.setText(filme.getNome());
-        btnTelaSinopse.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent(context, SinopseActivity.class);
-/**
- * https://github.com/livroandroid/5ed/blob/master/capitulos/cap04-activity/HelloActivity/app/src/main/java/br/com/livroandroid/cap04_activity/MainActivity.java
- */
-                Bundle params = new Bundle();
-                params.putParcelable("filme", filme);
-                intent.putExtras(params);
-                context.startActivity(intent);
-
-            }
-        });
 
         return view;
 

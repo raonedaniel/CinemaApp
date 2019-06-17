@@ -3,8 +3,6 @@ package senai.mobile.com.br.cinema.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.util.List;
-
 public class Filme implements Parcelable {
 
     private Integer id;
@@ -18,8 +16,6 @@ public class Filme implements Parcelable {
     private String duracao;
 
     private boolean status;
-
-    private List<Secao> secoes;
 
     protected Filme(Parcel in) {
         if (in.readByte() == 0) {
@@ -94,14 +90,6 @@ public class Filme implements Parcelable {
         this.status = status;
     }
 
-    public List<Secao> getSecoes() {
-        return secoes;
-    }
-
-    public void setSecoes(List<Secao> secoes) {
-        this.secoes = secoes;
-    }
-
     @Override
     public String toString() {
         return "Filme{" +
@@ -111,7 +99,6 @@ public class Filme implements Parcelable {
                 ", sinopse='" + sinopse + '\'' +
                 ", duracao='" + duracao + '\'' +
                 ", status=" + status +
-                ", secoes=" + secoes +
                 '}';
     }
 
