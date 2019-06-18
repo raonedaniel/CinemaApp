@@ -30,7 +30,7 @@
     <string-array name="estadoCivil">
         <item>SOLTEIRO</item>
         <item>CASADO</item>
-        <item>VIÚVO</item>
+        <item>VIUVO</item>
         <item>DIVORCIADO</item>
     </string-array>
 

@@ -1,19 +1,15 @@
 package senai.mobile.com.br.cinema.adapters;
 
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.List;
 
 import senai.mobile.com.br.cinema.R;
-import senai.mobile.com.br.cinema.activities.SinopseActivity;
 import senai.mobile.com.br.cinema.model.Filme;
 
 public class AdapterListaFilmesIndicados extends BaseAdapter {
@@ -29,8 +25,8 @@ public class AdapterListaFilmesIndicados extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return this.listFilmes.size();
-        //return this.listFilmes != null ? this.listFilmes.size() : 0;
+        //return this.listFilmes.size();
+        return this.listFilmes != null ? this.listFilmes.size() : 0;
     }
 
     @Override
@@ -58,9 +54,9 @@ public class AdapterListaFilmesIndicados extends BaseAdapter {
 
         final Filme filme = parseItem(position);
 
-        TextView tvNomeFilme = view.findViewById(R.id.tvNomeFilmeIndicado);
+        TextView tvNomeFilmeIndicado = view.findViewById(R.id.tvNomeFilmeIndicado);
 
-        tvNomeFilme.setText(filme.getNome());
+        tvNomeFilmeIndicado.setText(filme.getNome());
 
         return view;
 
